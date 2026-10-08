@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "localgen"
+dynamic = ["version"]
+description = "Image -> 3D (TRELLIS.2) and image generation (FLUX.2 klein 4B) on a 10 GB GPU, driven through ComfyUI"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = ["pillow", "numpy"]
+keywords = ["comfyui", "trellis", "image-to-3d", "flux", "gamedev", "3d-generation"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Topic :: Multimedia :: Graphics :: 3D Modeling",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.scripts]
+localgen = "localgen:main"
+
+[tool.setuptools]
+py-modules = ["localgen"]
+
+[tool.setuptools.dynamic]
+version = { attr = "localgen.__version__" }
